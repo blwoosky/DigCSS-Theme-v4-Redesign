@@ -37,7 +37,7 @@ export default function snippets(state = defaultState, {status,type,payload}) {
             let totalPages = state.snippetsList.totalPages;
             let snippetsData = state.snippetsList.snippets;
 
-            if (status != "start") {
+            if (status == "success") {
                 totalPages = payload.headers["x-wp-totalpages"];
                 snippetsData = payload.data;
             }
@@ -58,7 +58,7 @@ export default function snippets(state = defaultState, {status,type,payload}) {
                 ...state, snippet: {
                     ...state.snippet,
                     status: status,
-                    data: status != "start" && payload.data.length > 0 ? payload.data[0] : state.snippet.data
+                    data: status == "success" && payload.data.length > 0 ? payload.data[0] : state.snippet.data
                 }
             };
 
@@ -68,7 +68,7 @@ export default function snippets(state = defaultState, {status,type,payload}) {
                 ...state, snippetsTags: {
                     ...state.snippetsTags,
                     status: status,
-                    data: status != "start" ? payload.data : state.snippetsTags.data
+                    data: status == "success" ? payload.data : state.snippetsTags.data
                 }
             };
 
@@ -77,7 +77,7 @@ export default function snippets(state = defaultState, {status,type,payload}) {
                 ...state, totalCount: {
                     ...state.totalCount,
                     status: status,
-                    data: status != "start" ? payload.headers["x-wp-total"] : 0
+                    data: status == "success" ? payload.headers["x-wp-total"] : 0
                 }
             };
         default:

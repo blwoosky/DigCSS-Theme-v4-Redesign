@@ -43,7 +43,7 @@ export default function videos(state = defaultState, {status,type,payload}) {
             let totalPages = state.videosList.totalPages;
             let vids = state.videosList.videos;
 
-            if (status != "start") {
+            if (status == "success") {
                 totalPages = payload.headers["x-wp-totalpages"];
                 vids = payload.data;
             }
@@ -66,7 +66,7 @@ export default function videos(state = defaultState, {status,type,payload}) {
                 ...state, latestVideo: {
                     ...state.latestVideo,
                     status: status,
-                    data: status != "start" ? payload.data : state.latestVideo.data
+                    data: status == "success" ? payload.data : state.latestVideo.data
                 }
             };
 
@@ -78,7 +78,7 @@ export default function videos(state = defaultState, {status,type,payload}) {
                 ...state, currentVideo: {
                     ...state.currentVideo,
                     status: status,
-                    data: status != "start" && payload.data.length > 0 ? payload.data[0] : state.currentVideo.data
+                    data: status == "success" && payload.data.length > 0 ? payload.data[0] : state.currentVideo.data
                 }
             };
 

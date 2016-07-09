@@ -39,7 +39,7 @@ export default class Posts extends Component {
                         </Link>
                     </div>
                     <div className="tags">
-                        <Category categories={post.cateGory}/>
+                        <Category categories={post.categories}/>
                     </div>
                 </div>
                 <div className="moduleBox">
@@ -68,6 +68,7 @@ export default class Posts extends Component {
         let pageParam = getPageParam();
         pageParam = pageParam == null ? 1 : pageParam;
 
+        console.log(posts);
         let _this = this;
 
         return (

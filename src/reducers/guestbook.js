@@ -19,7 +19,7 @@ export default function pages(state = defaultState, {status,type,payload}) {
             return {
                 ...state,
                 status: status,
-                data: status != "start" ? payload.data[0] : state.data
+                data: status == "success" ? payload.data[0] : state.data
             };
 
             break;

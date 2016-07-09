@@ -1,29 +1,47 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import { connect } from "react-redux";
 
+class Category extends Component {
 
-export default class Category extends Component {
+    constructor(props) {
+        super(props);
+        this.matchCategories = this.matchCategories.bind(this);
+    }
+
+    matchCategories(cat) {
+        let categories = this.props.categories;
+        let flag = categories.some(function (catID) {
+            return cat.id == catID
+        });
+        //console.log(flag);
+        return flag;
+    }
 
     render() {
 
-        let categories = this.props.categories;
+        let categories = this.props.categories,
+            allCategories = this.props.allCategories.filter(this.matchCategories);
+
+        //console.log(allCategories);
+
         return (
             <div>
-                {categories.map(function (category, index) {
+                {allCategories.map(function (cat, index) {
 
-                    if (index == categories.length - 1) {
+                    if (index == allCategories.length - 1) {
                         return (
-                            <span key={category.cat_ID}>
-                                <Link to={`/category/${category.slug}`}>
-                                    { category.name }
+                            <span key={cat.cat_ID}>
+                                <Link to={`/category/${cat.slug}`}>
+                                    { cat.name }
                                 </Link>
                             </span>
                         )
                     } else {
                         return (
-                            <span key={category.cat_ID}>
-                                <Link to={`/category/${category.slug}`}>
-                                    { category.name }
+                            <span key={cat.cat_ID}>
+                                <Link to={`/category/${cat.slug}`}>
+                                    { cat.name }
                                 </Link>,
                             </span>
                         )
@@ -36,4 +54,10 @@ export default class Category extends Component {
 }
 
 
+function mapStateToProps(store) {
+    return {
+        allCategories: store.categories.categoryList
+    };
+}
 
+export default connect(mapStateToProps)(Category);

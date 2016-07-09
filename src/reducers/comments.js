@@ -24,7 +24,7 @@ export default function comments(state = defaultState, {status,type,payload}) {
             let totalPages = state.allComments.totalPages;
             let commentsData = state.allComments.comments;
 
-            if (status != "start") {
+            if (status == "success") {
                 totalPages = payload.headers["x-wp-totalpages"];
                 commentsData = payload.data;
             }

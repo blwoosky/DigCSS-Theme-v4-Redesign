@@ -16,7 +16,7 @@ export default function recPosts(state = defaultState, {status,type,payload}) {
             let totalPages = state.totalPages;
             let recPostsList = state.recPostsList;
 
-            if (status != "start") {
+            if (status == "success") {
                 totalPages = payload.headers["x-wp-totalpages"];
                 recPostsList = payload.data;
             }

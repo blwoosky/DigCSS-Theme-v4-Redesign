@@ -46,7 +46,7 @@ export default function courses(state = defaultState, {status,type,payload}) {
             let totalPages = state.courseList.totalPages;
             let coursesData = state.courseList.courses;
 
-            if (status != "start") {
+            if (status == "success") {
                 totalPages = payload.headers["x-wp-totalpages"];
                 coursesData = payload.data;
             }
@@ -69,7 +69,7 @@ export default function courses(state = defaultState, {status,type,payload}) {
                 ...state, coursePage: {
                     ...state.coursePage,
                     status: status,
-                    data: status != "start" ? payload.data[0] : state.coursePage.data
+                    data: status == "success" ? payload.data[0] : state.coursePage.data
                 }
             };
 
@@ -81,7 +81,7 @@ export default function courses(state = defaultState, {status,type,payload}) {
                 ...state, course: {
                     ...state.course,
                     status: status,
-                    data: status != "start" && payload.data.length > 0 ? payload.data[0] : state.course.data
+                    data: status == "success" && payload.data.length > 0 ? payload.data[0] : state.course.data
                 }
             };
 

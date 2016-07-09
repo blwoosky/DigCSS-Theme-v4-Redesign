@@ -16,7 +16,7 @@ export default function search(state = defaults, {status,type,payload}) {
             return {
                 ...state,
                 status: status,
-                searchList: status != "start" ? payload.data : state.searchList
+                searchList: status == "success" ? payload.data : state.searchList
             };
 
 

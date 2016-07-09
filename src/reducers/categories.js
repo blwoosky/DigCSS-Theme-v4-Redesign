@@ -11,7 +11,7 @@ export default function posts(state = defaults, {status,type,payload}) {
 
         case GET_CATEGORIES:
 
-            return {...state, status: status, categoryList: status != "start" ? payload.data : state.categoryList};
+            return {...state, status: status, categoryList: status == "success" ? payload.data : state.categoryList};
 
         default:
             return state;

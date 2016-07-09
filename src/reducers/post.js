@@ -25,7 +25,7 @@ export default function post(state = defalutPost, {status,type,payload}) {
             return {
                 ...state,
                 status: status,
-                data: status != "start" && payload.data.length > 0 ? payload.data[0] : state.data
+                data: status == "success" && payload.data.length > 0 ? payload.data[0] : state.data
             };
 
 

@@ -68,7 +68,7 @@ export default class Post extends Component {
                         </Link>
                     </div>
                     <div className="tags">
-                        <Category categories={post.cateGory}/>
+                        <Category categories={post.categories}/>
                     </div>
                 </div>
                 <div className="postContent moduleBox">

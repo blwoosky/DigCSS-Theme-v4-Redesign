@@ -4,7 +4,7 @@ import { GET_POSTS } from '../actions';
 const defaultState = {
     posts: [],
     totalPages: 1,
-    status: ""
+    status: "start"
 };
 
 //console.log(JSON.stringify(defaultState));
@@ -19,10 +19,11 @@ export default function posts(state = defaultState, {status,type,payload}) {
             let totalPages = state.totalPages;
             let posts = state.posts;
 
-            if (status != "start") {
+            if (status == "success") {
                 totalPages = payload.headers["x-wp-totalpages"];
                 posts = payload.data;
             }
+
             return {
                 ...state,
                 status: status,
