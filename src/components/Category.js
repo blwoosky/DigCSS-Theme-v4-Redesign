@@ -21,17 +21,19 @@ class Category extends Component {
     render() {
 
         let categories = this.props.categories,
-            allCategories = this.props.allCategories.filter(this.matchCategories);
+            allCategories = this.props.allCategories;
+
+        let newCategories = allCategories.filter(this.matchCategories);
 
         //console.log(allCategories);
 
         return (
             <div>
-                {allCategories.map(function (cat, index) {
+             {newCategories.map(function (cat, index) {
 
                     if (index == allCategories.length - 1) {
                         return (
-                            <span key={cat.cat_ID}>
+                            <span key={cat.id}>
                                 <Link to={`/category/${cat.slug}`}>
                                     { cat.name }
                                 </Link>
@@ -39,7 +41,7 @@ class Category extends Component {
                         )
                     } else {
                         return (
-                            <span key={cat.cat_ID}>
+                            <span key={cat.id}>
                                 <Link to={`/category/${cat.slug}`}>
                                     { cat.name }
                                 </Link>,
