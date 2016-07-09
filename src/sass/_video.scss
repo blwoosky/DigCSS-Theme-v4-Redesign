@@ -1,0 +1,13 @@
+.videoBox {
+  iframe,
+  embed {
+    width: 100%;
+    @include screen(800px){
+      height:450px;
+    }
+    @include screen(640px){
+      height:300px;
+    }
+  }
+
+}

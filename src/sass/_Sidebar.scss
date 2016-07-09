@@ -1,0 +1,125 @@
+
+.sideItem {
+
+  &:before {
+    content: attr(rel);
+    display: inline-block;
+    text-transform: capitalize;
+    font-variant: small-caps;
+    line-height: 22px;
+    background: #009dff;
+    padding: 0 8px;
+    bottom: 100%;
+    left: 10px;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-left: 10px;
+  }
+
+}
+
+.recommendMoreBtn {
+  display: block;
+  text-transform: capitalize;
+  font-variant: small-caps;
+  line-height: 22px;
+  background: #e67373;
+  padding: 0 8px;
+  position: absolute;
+  bottom: 100%;
+  right: 10px;
+  font-size: 12px;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.sideVideo {
+  min-height: 316px;
+  svg {
+    width: 50px;
+    fill: #fff;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    opacity: 0.5;
+    @include transition(0.3s);
+  }
+  &:hover {
+    svg {
+      opacity: 0.8;
+      @include transform(scale(1.8));
+    }
+  }
+  h4 {
+    font-size: 20px;
+    margin: 12px 0;
+    a {
+      display: block;
+    }
+  }
+  .videoRuntime {
+    color: #898989;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .videoExcerpt {
+    font-size: 14px;
+    line-height: 1.6em;
+  }
+}
+
+.videoThumbnail {
+  img {
+    width: 100%;
+  }
+  a {
+    display: block;
+  }
+}
+
+.sideArticles {
+  min-height: 103px;
+  h5 {
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #111;
+  }
+  ul {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  li {
+    margin-right: 5px;
+  }
+
+}
+
+.sideRecommend {
+  min-height: 144px;
+  svg {
+    width: 12px;
+    margin-right: 5px;
+  }
+  ul {
+    line-height: 1.6em;
+    font-size: 12px;
+    a {
+      display: block;
+      @extend %textOverflow;
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,447 @@
+header {
+  background: #191919;
+  height: 106px;
+  @include box-shadow(0 0 7px 4px rgba(#000, 0.3));
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  border-bottom: 2px solid orange;
+}
+
+.mainNavWrap {
+  height: 100%;
+  > div {
+    height: 100%;
+  }
+}
+
+@mixin nav($color) {
+  a {
+    @include sameColor($color);
+    &:hover {
+      background: rgba($color, 0.3);
+    }
+    &:active {
+      @include box-shadow(inset 0 0 10px rgba($color, 0.4));
+    }
+    &.active {
+      background: rgba($color, 0.4);
+      @include box-shadow(inset 0 0 20px rgba($color, 0.5))
+    }
+  }
+  svg {
+    fill: $color;
+  }
+}
+
+.mainNav {
+  text-align: center;
+  height: 100%;
+  ul, li {
+    height: 100%;
+  }
+  a {
+    display: block;
+    height: 100%;
+    padding: 0 32px;
+    @include box-sizing(border-box);
+    @include sameColor(#fff);
+    text-decoration: none;
+    @include transition(0.3s);
+  }
+
+  svg {
+    width: 40px;
+    display: block;
+    margin: 0 auto;
+    padding: 20px 0 10px 0;
+    fill: #fff;
+    @include transition(0.3s);
+  }
+
+  .home {
+    @include nav($homeIcon);
+  }
+
+  .videos {
+    @include nav($videoIcon);
+  }
+  .snippets {
+    @include nav($codeIcon);
+  }
+  .guestbook {
+    @include nav($guestIcon);
+  }
+  .courses {
+    @include nav($courseIcon);
+  }
+}
+
+.logo {
+  padding-top: 12px;
+  width: 306px;
+  @include box-sizing(border-box);
+  overflow: hidden;
+}
+
+.searchForm {
+  height: 100%;
+  form {
+    height: 100%;
+  }
+
+  input[type="text"] {
+
+    right: 0;
+    top: 0;
+    background: rgba(#fff, 0.8);
+    border: none;
+    height: 100%;
+    width: 300px;
+    padding: 0 10px;
+    @include transition(0.3s);
+    @include aniHide();
+    font-size: 24px;
+    border-right: 1px solid rgba(#fff, 0.7);
+    &:-moz-placeholder,
+    &::-webkit-input-placeholder {
+      color: #000;
+    }
+
+  }
+  .searchBtn {
+    display: block;
+    height: 100%;
+    padding: 0 32px;
+    @include sameColor(#fff);
+    @include transition(0.3s);
+    border: none;
+  }
+  svg {
+    width: 52px;
+    display: inline-block;
+    fill: #fff;
+  }
+
+  &:hover {
+    input[type="text"] {
+      @include aniShow();
+      right: 100%;
+    }
+    .searchBtn {
+      background: rgba(#fff, 0.8);
+    }
+  }
+}
+
+.userWrap {
+  height: 100%;
+  padding: 15px 25px 0;
+  @include box-sizing(border-box);
+  .gravatar {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: rgba(#fff, 0.1);
+    @include radius(50%);
+    text-align: center;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  svg {
+    width: 52px;
+    display: inline-block;
+    margin-top: 10px;
+    fill: #fff;
+  }
+
+  &:hover {
+    .userInfo {
+      @include aniShow();
+      margin-top: 10px;
+    }
+  }
+
+}
+
+.userInfo {
+  @include box-shadow(0 0 40px rgba(#000, 0.6));
+  margin-top: 0;
+  top: 100%;
+  right: 0;
+  margin-right: 10px;
+  @include box-sizing(border-box);
+  width: 300px;
+  padding: 20px;
+  background: #fff;
+  @include aniHide();
+  @include transition(0.3s);
+  h4 {
+    font-size: 22px;
+    font-family: georgia;
+    text-transform: capitalize;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  p {
+    line-height: 1.4em;
+  }
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 10px solid transparent;
+    height: 0;
+    width: 0;
+    border-bottom-color: #fff;
+    bottom: 100%;
+    right: 44px;
+  }
+}
+
+.collapseMenu {
+
+  cursor: pointer;
+  width: 74px;
+  display: none;
+  svg {
+    width: 24px;
+    fill: #fff;
+    left: 50%;
+    top: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+    @include transition(0.3s);
+  }
+  .closeBtn {
+    @include aniHide();
+    @include transform(translate(100%, 0));
+  }
+
+  .menuBtn {
+    @include transition-delay(0.3s);
+    @include transform(translate(0, 0));
+  }
+
+}
+
+@include screen(1110px) {
+
+  .mainNav {
+    a {
+      padding: 0 20px;
+    }
+  }
+
+}
+
+@include screen(990px) {
+
+  header {
+    height: 72px;
+  }
+
+  .logo {
+    width: 200px;
+
+  }
+
+  .mainNav {
+    font-size: 14px;
+    svg {
+      width: 24px;
+      padding-top: 12px;
+    }
+  }
+
+  .searchForm {
+    .searchBtn {
+      padding: 0 15px;
+    }
+    svg {
+      width: 26px;
+    }
+  }
+
+  .userWrap {
+    padding: 10px;
+    .gravatar {
+      background: none;
+      width: auto;
+      height: auto;
+      overflow: auto;
+      @include radius(0);
+    }
+    svg {
+      width: 30px;
+    }
+  }
+  .userInfo {
+    margin-right: 0;
+    &:before {
+      right: 15px;
+    }
+  }
+
+}
+
+@include screen(690px) {
+  .mainNavWrap {
+    .headerRight {
+      padding-top: 54px;
+      background: #191919;
+      margin-left: -15px;
+      margin-right: -15px;
+      @include transition(0.3s);
+      @include aniHide();
+      height: 0;
+      float: none;
+      clear: both;
+      position: relative;
+    }
+  }
+
+  .mainNav,
+  .userWrap,
+  .searchForm {
+    float: none;
+  }
+
+  .searchForm {
+
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 54px;
+
+    form {
+      padding-right: 77px;
+    }
+
+    .searchBtn {
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    &:hover {
+      .searchBtn {
+        background: rgba(#fff, 0.1);
+      }
+
+    }
+
+  }
+
+  .mainNav {
+    ul > li {
+      float: none;
+    }
+    span, svg {
+      margin: 0 5px;
+      display: inline;
+      vertical-align: middle;
+    }
+
+  }
+
+  .userInfo {
+    position: static;
+    display: inline-block;
+    padding: 0;
+    background: transparent;
+    color: #fff;
+    @include aniShow();
+    width: auto;
+    @include box-shadow(none);
+    &:before {
+      display: none;
+    }
+    h4 {
+      margin-bottom: 10px;
+    }
+  }
+  .userWrap {
+    text-align: center;
+    margin-top: 54px;
+    &:hover {
+      .userInfo {
+        margin-top: 0;
+      }
+    }
+    svg {
+      margin-top: 0;
+    }
+    .gravatar {
+      vertical-align: top;
+      margin-right: 20px;
+      display: inline-block;
+
+    }
+  }
+
+  .collapseMenu {
+    display: block;
+  }
+  header {
+    &.opened {
+
+      .mainNavWrap {
+        .headerRight {
+          @include aniShow();
+          height: auto;
+          //padding-bottom: 54px;
+        }
+      }
+      .collapseMenu {
+        .menuBtn {
+          @include aniHide();
+          @include transform(translate(100%, 0));
+          @include transition-delay(0s);
+        }
+        .closeBtn {
+          @include aniShow();
+          @include transition-delay(0.3s);
+          @include transform(translate(0, 0));
+        }
+      }
+
+      .searchForm {
+        input[type="text"] {
+          width: 100%;
+          @include aniShow();
+          position: static;
+          display: block;
+          color: #fff;
+          font-size: 18px;
+          background: rgba(#fff, 0.1);
+          border-right: 1px solid rgba(#fff, 0.3);
+        }
+      }
+
+    }
+  }
+}
+
+@include screen(480px) {
+  .collapseMenu {
+    width: 44px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

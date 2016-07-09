@@ -1,0 +1,174 @@
+.commentsStart {
+  padding: 20px 0;
+  font-size: 28px;
+}
+
+.commentItem {
+  .btns {
+    right: 0;
+    top: 0;
+    @include screen(480px) {
+      .btn {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.childComments {
+  //margin-right:-20px;
+  margin-top: 20px;
+  .commentItem {
+    margin-bottom: 0;
+  }
+  .moduleBox {
+    @include box-shadow(0 0 10px rgba(black, 0.2));
+  }
+}
+
+.authorName {
+  font-size: 20px;
+}
+
+.commentsDate {
+  line-height: 1.6em;
+  font-family: georgia;
+  color: #dbdbdb;
+}
+
+.commentContent {
+  font-size: 14px;
+  line-height: 1.6em;
+  word-break: break-word;
+}
+
+.gravatar {
+  width: 96px;
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@include screen(480px) {
+  .authorName {
+    font-size: 16px;
+  }
+
+  .commentsDate {
+    font-size: 14px;
+  }
+  .gravatar {
+    margin-right: 10px;
+    width: 48px;
+  }
+}
+
+@include screen(320px) {
+  .gravatar {
+    width: 32px;
+  }
+}
+
+.commentForm {
+
+  input.form-control {
+    height: 30px;
+  }
+
+  .form-control {
+    width: 100%;
+    text-indent: 10px;
+    border: 1px solid #ccc;
+    @include box-sizing(border-box);
+    @include box-shadow(0 0 10px rgba(#000, 0.1));
+  }
+
+  textarea.form-control {
+    padding: 10px;
+    text-indent: 0;
+    height: 200px;
+  }
+
+  .inputs {
+    > div {
+      &:nth-of-type(1) {
+        padding-right: 5px;
+      }
+      &:nth-of-type(2) {
+        padding-right: 5px;
+        padding-left: 5px;
+      }
+      &:nth-of-type(3) {
+        padding-left: 5px;
+      }
+    }
+    @include screen(990px) {
+      > div {
+        &:nth-of-type(1),
+        &:nth-of-type(2) {
+          margin-bottom: 10px;
+        }
+        &:nth-of-type(1),
+        &:nth-of-type(2),
+        &:nth-of-type(3) {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+      }
+    }
+  }
+
+  .submitBtn {
+    width: 100%;
+    cursor: pointer;
+
+  }
+
+}
+
+.newCommentItem {
+  .moduleBox {
+    background: #dcffe0;
+    @include box-shadow(0 0 10px #00750e);
+    .commentsDate {
+      color: #818181;
+    }
+  }
+  &.hold {
+    .moduleBox {
+      background: #ffd8d8;
+      @include box-shadow(0 0 10px #f00);
+    }
+    .tipTxt {
+      color: #f00;
+      font-size: 14px;
+      right: 10px;
+      top: 10px;
+    }
+  }
+}
+
+.errMsg {
+  padding: 10px;
+  border: 1px solid #f00;
+  @include box-shadow(0 0 10px #f00);
+  background: rgba(#fff, 0.5);
+  color: #f00;
+  border-radius: 3px;
+  font-size: 12px;
+  svg {
+    width: 12px;
+    fill: #f00;
+    right: 10px;
+    cursor: pointer;
+  }
+}
+
+
+
+
+
+
+
+

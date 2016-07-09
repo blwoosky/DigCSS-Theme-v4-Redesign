@@ -1,0 +1,54 @@
+.postExcerpt {
+  line-height: 2em;
+  font-size: 14px;
+  color: #585858;
+}
+
+.postMeta {
+  line-height: 22px;
+  color: #fff;
+  font-size: 12px;
+  text-align: right;
+  a {
+    color: #fff;
+  }
+  > div {
+    padding: 0 10px;
+    display: inline-block;
+    margin-right: 10px;
+    background: #009dff;
+  }
+
+  svg {
+    fill: #fff;
+    width: 14px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+}
+
+
+.postItem {
+  /*&:after {
+    position: absolute;
+    display: block;
+    width: 100%;
+    z-index: 2;
+    content: '';
+    height: 30%;
+    left: 0;
+    bottom: 0;
+    visibility: visible;
+    transition:0.3s;
+    opacity: 0.5;
+    @include lgKey("to bottom", rgba(#000, 0), rgba(#000, 1));
+  }*/
+  &:hover {
+    z-index: 3;
+    /*&:after {
+      @include aniHide();
+    }*/
+  }
+}
+
+

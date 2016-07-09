@@ -1,0 +1,77 @@
+.courseTable {
+  .tableLeft {
+    width: 55%;
+  }
+  .tableRight {
+    width: 45%;
+    table {
+      margin-left: -2px;
+    }
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    min-height: 165px;
+    @include box-sizing(border-box);
+    font-size: 18px;
+    table-layout: fixed;
+  }
+  svg {
+    display: inline-block;
+    width: 50px;
+  }
+  .price {
+    color: #dd4848;
+  }
+  th, td {
+    border: 1px solid #000;
+    text-align: center;
+    span {
+      display: block;
+      padding: 20px 10px;
+    }
+    .course_link {
+      font-size: 12px;
+      padding: 0;
+      a {
+        display: block;
+        padding: 20px 10px;
+        text-decoration: none;
+        b {
+          display: block;
+        }
+        &:hover {
+          background: rgba(black, 0.1);
+        }
+      }
+    }
+  }
+
+  @include screen(640px) {
+    .tableLeft, .tableRight {
+      width: 100%;
+      float: none;
+    }
+    .tableRight {
+      margin-top: -1px;
+      table {
+        margin-left: 0;
+      }
+    }
+    table {
+      min-height: 90px;
+    }
+    th, td {
+      span {
+        padding: 10px;
+      }
+      .course_link {
+        a {
+          padding: 10px;
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,391 @@
+@mixin screen($width) {
+  @media (max-width: $width) {
+    @content
+  }
+}
+
+@mixin rainbow() {
+  background: -webkit-linear-gradient(45deg, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee) repeat scroll 0 0 transparent;
+  background: linear-gradient(45deg, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #ee82ee) repeat scroll 0 0 transparent;
+}
+
+a {
+  color: #000;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.fix {
+  *zoom: 1
+}
+
+.fix:after {
+  display: block;
+  content: "$";
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden
+}
+
+.cell {
+  display: table-cell;
+  *display: inline-block;
+  width: 2000px;
+  *width: auto
+}
+
+ul.fix > li {
+  float: left;
+}
+
+.l {
+  float: left;
+}
+
+.r {
+  float: right;
+}
+
+.tar {
+  text-align: right;
+}
+
+.tal {
+  text-align: left;
+}
+
+.tac {
+  text-align: center;
+}
+
+.trans {
+  @include transition(0.3s);
+}
+
+.hidden {
+  display: none;
+}
+
+.oh {
+  overflow: hidden;
+}
+
+.ovxh {
+  overflow-x: hidden;
+}
+
+.ovyh {
+  overflow-y: hidden;
+}
+
+.r_img {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.rel {
+  position: relative;
+}
+
+.abs {
+  position: absolute;
+}
+
+.p10 {
+  padding: 10px;
+  @include screen(320px) {
+    padding: 5px;
+  }
+}
+
+.p15 {
+  padding: 15px;
+  @include screen(480px) {
+    padding: 10px;
+  }
+  @include screen(320px) {
+    padding: 5px;
+  }
+}
+
+.col-1-3 {
+  width: 33.33%;
+}
+
+.col-2-3 {
+  width: 66.66%;
+}
+
+.mainWrap {
+  margin: 0 -15px;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  @include box-sizing(border-box);
+  padding: 0 15px;
+}
+
+.col-1-3,
+.col-2-3 {
+  @include box-sizing(border-box);
+  padding: 0 15px;
+}
+
+@include screen(990px) {
+
+  .col-1-3 {
+    width: 100%;
+  }
+
+  .col-2-3 {
+    width: 100%;
+  }
+
+}
+
+.pl10 {
+  padding-left: 10px;
+}
+
+.pr10 {
+  padding-right: 10px;
+}
+
+.pt10 {
+  padding-top: 10px;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.m10 {
+  margin: 10px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.m5 {
+  margin: 5px;
+}
+
+.ml5 {
+  margin-left: 5px;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+
+.mt5 {
+  margin-top: 5px;
+}
+
+.mb5 {
+  margin-bottom: 5px;
+}
+
+.p20 {
+  padding: 20px;
+}
+
+.pl20 {
+  padding-left: 20px;
+}
+
+.pr20 {
+  padding-right: 20px;
+}
+
+.pt20 {
+  padding-top: 20px;
+}
+
+.pb20 {
+  padding-bottom: 20px;
+}
+
+.ml20 {
+  margin-left: 20px;
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.p30 {
+  padding: 30px;
+}
+
+.pl30 {
+  padding-left: 30px;
+}
+
+.pr30 {
+  padding-right: 30px;
+}
+
+.pt30 {
+  padding-top: 30px;
+}
+
+.pb30 {
+  padding-bottom: 30px;
+}
+
+.ml30 {
+  margin-left: 30px;
+}
+
+.mr30 {
+  margin-right: 30px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mb30 {
+  margin-bottom: 30px;
+}
+
+.mt40 {
+  margin-top: 40px;
+}
+
+.dib {
+  display: inline-block;
+}
+
+@include screen(520px) {
+  .p20 {
+    padding: 10px;
+  }
+  .pl20 {
+    padding-left: 10px;
+  }
+  .pr20 {
+    padding-right: 10px;
+  }
+  .pt20 {
+    padding-top: 10px;
+  }
+  .pb20 {
+    padding-bottom: 10px;
+  }
+}
+
+@mixin sameColor($color) {
+  color: $color;
+  background: rgba($color, 0.1);
+}
+
+.rel {
+  position: relative;
+}
+
+.abs {
+  position: absolute;
+}
+
+@mixin aniShow() {
+  visibility: visible;
+  opacity: 1;
+}
+
+@mixin aniHide() {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.list-inline {
+  li {
+    display: inline-block;
+  }
+}
+
+.moduleBox {
+  background: #fff;
+  @include box-shadow(0 0 10px rgba(#000, 0.1));
+}
+
+.commonListTitle {
+
+  font-size: 30px;
+  padding: 10px 0 20px 0;
+  a {
+    display: block;
+  }
+
+}
+
+.btn {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  display: inline-block;
+  line-height: 1em;
+  padding: 0.4em 1.2em;
+  font-size: 14px;
+  color: #009dff !important;
+  border: 3px solid #009dff;
+  @include box-shadow(inset 0 0 10px rgba(#009dff, 0.4));
+  background: #fff;
+  &:hover {
+    text-decoration: none;
+    @include box-shadow(inset 0 0 10px rgba(#29aeff, 0.8));
+  }
+
+  &:active {
+    @include box-shadow(inset 0 0 10px rgba(#236dff, 0.9));
+  }
+
+}
+
+.trans {
+  @include transition(0.3s);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

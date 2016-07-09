@@ -1,0 +1,26 @@
+@import "mobile";
+@import "reset";
+@import "common";
+@import "var";
+@import "Header";
+@import "Footer";
+@import "Sidebar";
+@import "Home";
+@import "animation";
+@import "typography";
+@import "prism";
+@import "comments";
+@import "list";
+@import "video";
+@import "course";
+@import "loading";
+@import "Pagination";
+
+body {
+  background: #cacaca;
+  padding-top: 106px;
+  font-family: "Microsoft YaHei"; //for windows
+  @include screen(990px) {
+    padding-top: 72px;
+  }
+}

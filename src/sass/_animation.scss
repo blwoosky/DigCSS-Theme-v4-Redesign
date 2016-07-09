@@ -1,0 +1,115 @@
+/*slideRight Animation*/
+.slideRight-enter {
+  opacity: 0;
+  @include transform(translate(100px, 0));
+}
+
+.slideRight-enter.slideRight-enter-active {
+  opacity: 1;
+  @include transform(translate(0, 0));
+  transition: 0.5s;
+}
+
+.slideRight-leave {
+  opacity: 1;
+  @include transform(translate(0, 0));
+}
+
+.slideRight-leave.slideRight-leave-active {
+  opacity: 0;
+  @include transform(translate(100px, 0));
+  transition: 0.3s;
+}
+
+/*Bottom to Top Slide Animation*/
+.slideTop-enter {
+  opacity: 0;
+  @include transform(translate(0, 100px));
+}
+
+.slideTop-enter.slideTop-enter-active {
+  opacity: 1;
+  @include transform(translate(0, 0));
+  transition: 0.5s;
+}
+
+.slideTop-leave {
+  opacity: 1;
+  @include transform(translate(0, 0));
+}
+
+.slideTop-leave.slideTop-leave-active {
+  opacity: 0;
+  @include transform(translate(0, 100px));
+  transition: 0.3s;
+}
+
+/*slideLeft Animation*/
+.slideLeft-enter {
+  opacity: 0;
+  @include transform(translate(-100px, 0));
+}
+
+.slideLeft-enter.slideLeft-enter-active {
+  opacity: 1;
+  @include transform(translate(0, 0));
+  transition: 0.5s;
+}
+
+.slideLeft-leave {
+  opacity: 1;
+  @include transform(translate(0, 0));
+}
+
+.slideLeft-leave.slideLeft-leave-active {
+  opacity: 0;
+  @include transform(translate(-100px, 0));
+  transition: 0.3s;
+}
+
+/*Fade In & Fade Out Animation*/
+.opacity-enter {
+  opacity: 0;
+}
+
+.opacity-enter.opacity-enter-active {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.opacity-leave {
+  opacity: 1;
+}
+
+.opacity-leave.opacity-leave-active {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+/*Scale Animation*/
+.scale-enter {
+  opacity: 0;
+  @include transform(scale(0));
+  @include transform-origin(top);
+}
+
+.scale-enter.scale-enter-active {
+  opacity: 1;
+  @include transform(scale(1));
+  @include transform-origin(top);
+  transition: 0.8s;
+}
+
+.scale-leave {
+  opacity: 1;
+  @include transform(scale(1));
+  @include transform-origin(top);
+}
+
+.scale-leave.scale-leave-active {
+  opacity: 0;
+  transition: 0.3s;
+  @include transform(scale(0));
+  @include transform-origin(top);
+}
+
